@@ -1,0 +1,10 @@
+spring:
+    datasource:
+        jndi-name: jdbc/culqi_ntx
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+
+logging:
+    level:
+        com.culqi: INFO
+    file: ${catalina.home}/logs/culqi/ntx.log

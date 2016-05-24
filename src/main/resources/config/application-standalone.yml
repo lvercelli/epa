@@ -1,0 +1,10 @@
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost/epa_db
+        username: epa_r
+        password: 12348765
+
+logging:
+    level:
+        com.culqi: DEBUG
