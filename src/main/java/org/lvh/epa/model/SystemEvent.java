@@ -13,6 +13,10 @@ public class SystemEvent {
     @Column(name = "id")
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "system_entity_id")
+    private SystemEntity systemEntity;
+
     @Column(name = "description")
     private String description;
 
@@ -22,6 +26,15 @@ public class SystemEvent {
 
     public SystemEvent setId(Integer id) {
         this.id = id;
+        return this;
+    }
+
+    public SystemEntity getSystemEntity() {
+        return systemEntity;
+    }
+
+    public SystemEvent setSystemEntity(SystemEntity systemEntity) {
+        this.systemEntity = systemEntity;
         return this;
     }
 
@@ -38,6 +51,7 @@ public class SystemEvent {
     public String toString() {
         return "SystemEvent{" +
                 "id=" + id +
+                ", systemEntity=" + (systemEntity != null ? systemEntity.getId() : null) +
                 ", description='" + description + '\'' +
                 '}';
     }

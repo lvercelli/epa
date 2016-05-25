@@ -1,9 +1,6 @@
 package org.lvh.epa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by lvercelli on 5/23/16.
@@ -15,6 +12,10 @@ public class SystemOperationResult {
     @Id
     @Column(name = "id")
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "system_operation_id")
+    private SystemOperation systemOperation;
 
     @Column(name = "description")
     private String description;
@@ -31,6 +32,15 @@ public class SystemOperationResult {
 
     public SystemOperationResult setId(Integer id) {
         this.id = id;
+        return this;
+    }
+
+    public SystemOperation getSystemOperation() {
+        return systemOperation;
+    }
+
+    public SystemOperationResult setSystemOperation(SystemOperation systemOperation) {
+        this.systemOperation = systemOperation;
         return this;
     }
 
@@ -65,6 +75,7 @@ public class SystemOperationResult {
     public String toString() {
         return "SystemOperationResult{" +
                 "id=" + id +
+                ", systemOperation=" + (systemOperation != null ? systemOperation.getId() : null) +
                 ", description='" + description + '\'' +
                 ", code='" + code + '\'' +
                 ", message='" + message + '\'' +

@@ -1,7 +1,6 @@
 package org.lvh.epa.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by lvercelli on 5/23/16.
@@ -18,13 +17,9 @@ public class SystemEntity {
     @JoinColumn(name = "system_class_id")
     private SystemClass systemClass;
 
-    @Column(name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
     @ManyToOne
-    @JoinColumn(name = "created_by_id")
-    private SystemUser createdBy;
+    @JoinColumn(name = "creation_process_id")
+    private SystemProcess creationProcess;
 
     @ManyToOne
     @JoinColumn(name = "last_system_log_id")
@@ -48,21 +43,12 @@ public class SystemEntity {
         return this;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public SystemProcess getCreationProcess() {
+        return creationProcess;
     }
 
-    public SystemEntity setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    public SystemUser getCreatedBy() {
-        return createdBy;
-    }
-
-    public SystemEntity setCreatedBy(SystemUser createdBy) {
-        this.createdBy = createdBy;
+    public SystemEntity setCreationProcess(SystemProcess creationProcess) {
+        this.creationProcess = creationProcess;
         return this;
     }
 
@@ -80,8 +66,7 @@ public class SystemEntity {
         return "SystemEntity{" +
                 "id=" + id +
                 ", systemClass=" + systemClass +
-                ", createdAt=" + createdAt +
-                ", createdBy=" + (createdBy != null ? createdBy.getId() : null) +
+                ", creationProcess=" + (creationProcess != null ? creationProcess.getId() : null) +
                 ", lastSystemLog=" + (lastSystemLog != null ? lastSystemLog.getId() : null) +
                 '}';
     }

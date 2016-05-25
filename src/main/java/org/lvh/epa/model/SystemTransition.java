@@ -19,7 +19,7 @@ public class SystemTransition {
     private SystemEvent systemEvent;
 
     @ManyToOne
-    @JoinColumn(name = "prev_system_status")
+    @JoinColumn(name = "prev_system_status_id")
     private SystemStatus prevSystemStatus;
 
     @ManyToOne

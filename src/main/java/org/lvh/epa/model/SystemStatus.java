@@ -1,9 +1,6 @@
 package org.lvh.epa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by lvercelli on 5/23/16.
@@ -16,6 +13,10 @@ public class SystemStatus {
     @Column(name = "id")
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "system_entity_id")
+    private SystemEntity systemEntity;
+
     @Column(name = "name")
     private String name;
 
@@ -25,6 +26,15 @@ public class SystemStatus {
 
     public SystemStatus setId(Integer id) {
         this.id = id;
+        return this;
+    }
+
+    public SystemEntity getSystemEntity() {
+        return systemEntity;
+    }
+
+    public SystemStatus setSystemEntity(SystemEntity systemEntity) {
+        this.systemEntity = systemEntity;
         return this;
     }
 
@@ -41,6 +51,7 @@ public class SystemStatus {
     public String toString() {
         return "SystemStatus{" +
                 "id=" + id +
+                ", systemEntity=" + (systemEntity != null ? systemEntity.getId() : null) +
                 ", name='" + name + '\'' +
                 '}';
     }
