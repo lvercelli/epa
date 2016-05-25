@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_status")
+@Table(name = "core_status")
 public class SystemStatus {
 
     @Id
@@ -14,8 +14,8 @@ public class SystemStatus {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "system_entity_id")
-    private SystemEntity systemEntity;
+    @JoinColumn(name = "core_entity_id")
+    private CoreEntity coreEntity;
 
     @Column(name = "name")
     private String name;
@@ -29,12 +29,12 @@ public class SystemStatus {
         return this;
     }
 
-    public SystemEntity getSystemEntity() {
-        return systemEntity;
+    public CoreEntity getCoreEntity() {
+        return coreEntity;
     }
 
-    public SystemStatus setSystemEntity(SystemEntity systemEntity) {
-        this.systemEntity = systemEntity;
+    public SystemStatus setCoreEntity(CoreEntity coreEntity) {
+        this.coreEntity = coreEntity;
         return this;
     }
 
@@ -51,7 +51,7 @@ public class SystemStatus {
     public String toString() {
         return "SystemStatus{" +
                 "id=" + id +
-                ", systemEntity=" + (systemEntity != null ? systemEntity.getId() : null) +
+                ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
                 ", name='" + name + '\'' +
                 '}';
     }

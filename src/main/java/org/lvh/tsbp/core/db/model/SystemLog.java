@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_log")
+@Table(name = "core_log")
 public class SystemLog {
 
     @Id
@@ -16,15 +16,15 @@ public class SystemLog {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "system_entity_id")
-    private SystemEntity systemEntity;
+    @JoinColumn(name = "core_entity_id")
+    private CoreEntity coreEntity;
 
     @ManyToOne
-    @JoinColumn(name = "system_transition_id")
+    @JoinColumn(name = "core_transition_id")
     private SystemTransition systemTransition;
 
     @ManyToOne
-    @JoinColumn(name = "system_status_id")
+    @JoinColumn(name = "core_status_id")
     private SystemStatus systemStatus;
 
     @Column(name = "issued_at")
@@ -32,7 +32,7 @@ public class SystemLog {
     private Date issuedAt;
 
     @ManyToOne
-    @JoinColumn(name = "system_process_id")
+    @JoinColumn(name = "core_process_id")
     private SystemProcess systemProcess;
 
     public Long getId() {
@@ -44,12 +44,12 @@ public class SystemLog {
         return this;
     }
 
-    public SystemEntity getSystemEntity() {
-        return systemEntity;
+    public CoreEntity getCoreEntity() {
+        return coreEntity;
     }
 
-    public SystemLog setSystemEntity(SystemEntity systemEntity) {
-        this.systemEntity = systemEntity;
+    public SystemLog setCoreEntity(CoreEntity coreEntity) {
+        this.coreEntity = coreEntity;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class SystemLog {
     public String toString() {
         return "SystemLog{" +
                 "id=" + id +
-                ", systemEntity=" + (systemEntity != null ? systemEntity.getId() : null) +
+                ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
                 ", systemTransition=" + (systemTransition != null ? systemTransition.getId() : null) +
                 ", systemStatus=" + systemStatus +
                 ", issuedAt=" + issuedAt +

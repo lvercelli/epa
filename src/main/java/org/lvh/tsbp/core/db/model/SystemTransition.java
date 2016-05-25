@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_transition")
+@Table(name = "core_transition")
 public class SystemTransition {
 
     @Id
@@ -15,7 +15,7 @@ public class SystemTransition {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "system_event_id")
+    @JoinColumn(name = "core_event_id")
     private SystemEvent systemEvent;
 
     @ManyToOne

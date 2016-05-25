@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.repository.base;
+package org.lvh.tsbp.core.db.repository.base;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;

@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_process")
+@Table(name = "core_process")
 public class SystemProcess {
 
     @Id
@@ -16,7 +16,7 @@ public class SystemProcess {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "system_operation_id")
+    @JoinColumn(name = "core_operation_id")
     private SystemOperation systemOperation;
 
     @ManyToOne
@@ -32,7 +32,7 @@ public class SystemProcess {
     private Date finishedAt;
 
     @ManyToOne
-    @JoinColumn(name = "system_operation_result_id")
+    @JoinColumn(name = "core_operation_result_id")
     private SystemOperationResult systemOperationResult;
 
     @Column(name = "remarks")

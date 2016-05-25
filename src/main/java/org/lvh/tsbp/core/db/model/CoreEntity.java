@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.*;
 
@@ -6,16 +6,16 @@ import javax.persistence.*;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_entity")
-public class SystemEntity {
+@Table(name = "core_entity")
+public class CoreEntity {
 
     @Id
     @Column(name = "id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "system_class_id")
-    private SystemClass systemClass;
+    @JoinColumn(name = "core_class_id")
+    private CoreClass coreClass;
 
     @ManyToOne
     @JoinColumn(name = "creation_process_id")
@@ -29,17 +29,17 @@ public class SystemEntity {
         return id;
     }
 
-    public SystemEntity setId(Long id) {
+    public CoreEntity setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public SystemClass getSystemClass() {
-        return systemClass;
+    public CoreClass getCoreClass() {
+        return coreClass;
     }
 
-    public SystemEntity setSystemClass(SystemClass systemClass) {
-        this.systemClass = systemClass;
+    public CoreEntity setCoreClass(CoreClass coreClass) {
+        this.coreClass = coreClass;
         return this;
     }
 
@@ -47,7 +47,7 @@ public class SystemEntity {
         return creationProcess;
     }
 
-    public SystemEntity setCreationProcess(SystemProcess creationProcess) {
+    public CoreEntity setCreationProcess(SystemProcess creationProcess) {
         this.creationProcess = creationProcess;
         return this;
     }
@@ -56,16 +56,16 @@ public class SystemEntity {
         return lastSystemLog;
     }
 
-    public SystemEntity setLastSystemLog(SystemLog lastSystemLog) {
+    public CoreEntity setLastSystemLog(SystemLog lastSystemLog) {
         this.lastSystemLog = lastSystemLog;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemEntity{" +
+        return "CoreEntity{" +
                 "id=" + id +
-                ", systemClass=" + systemClass +
+                ", coreClass=" + coreClass +
                 ", creationProcess=" + (creationProcess != null ? creationProcess.getId() : null) +
                 ", lastSystemLog=" + (lastSystemLog != null ? lastSystemLog.getId() : null) +
                 '}';

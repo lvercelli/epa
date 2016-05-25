@@ -1,4 +1,4 @@
-package org.lvh.tsbp.db.model;
+package org.lvh.tsbp.core.db.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +9,8 @@ import javax.persistence.Table;
  * Created by lvercelli on 5/23/16.
  */
 @Entity
-@Table(name = "system_class")
-public class SystemClass {
+@Table(name = "core_operation")
+public class SystemOperation {
 
     @Id
     @Column(name = "id")
@@ -23,7 +23,7 @@ public class SystemClass {
         return id;
     }
 
-    public SystemClass setId(Integer id) {
+    public SystemOperation setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -32,16 +32,8 @@ public class SystemClass {
         return name;
     }
 
-    public SystemClass setName(String name) {
+    public SystemOperation setName(String name) {
         this.name = name;
         return this;
-    }
-
-    @Override
-    public String toString() {
-        return "SystemClass{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

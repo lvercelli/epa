@@ -1,8 +1,8 @@
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost/epa_db
-        username: epa_r
+        url: jdbc:mysql://localhost/tsbp_db
+        username: tsbp_r
         password: 12348765
 
 logging:

@@ -1,95 +1,95 @@
-drop database if exists epa_db;
-create database epa_db;
-grant all on epa_db.* to epa_r with grant option;
-set password for epa_r = password('12348765');
+drop database if exists tsbp_db;
+create database tsbp_db;
+grant all on tsbp_db.* to tsbp_r with grant option;
+set password for tsbp_r = password('12348765');
 
-use epa_db;
+use tsbp_db;
 
-create table system_user (
+create table core_user (
     id int unsigned primary key auto_increment,
     email varchar(255) unique,
-    system_entity_id bigint unsigned
+    core_entity_id bigint unsigned
 ) engine=innodb;
 
-create table system_operation (
+create table core_operation (
     id int unsigned primary key,
     name varchar(255)
 ) engine=innodb;
 
-create table system_operation_result (
+create table core_operation_result (
     id int unsigned primary key,
-    system_operation_id int unsigned,
+    core_operation_id int unsigned,
     description varchar(255),
     code varchar(255),
     message varchar(255),
-    foreign key (system_operation_id) references system_operation (id)
+    foreign key (core_operation_id) references core_operation (id)
 ) engine=innodb;
 
-create table system_process (
+create table core_process (
     id bigint unsigned primary key auto_increment,
-    system_operation_id int unsigned,
+    core_operation_id int unsigned,
     issued_by_id int unsigned,
     started_at datetime,
     finished_at datetime,
-    system_operation_result_id int unsigned,
+    core_operation_result_id int unsigned,
     remarks varchar(255),
     exception text,
-    foreign key (system_operation_id) references system_operation (id),
-    foreign key (issued_by_id) references system_user (id),
-    foreign key (system_operation_result_id) references system_operation_result (id)
+    foreign key (core_operation_id) references core_operation (id),
+    foreign key (issued_by_id) references core_user (id),
+    foreign key (core_operation_result_id) references core_operation_result (id)
 ) engine=innodb;
 
-create table system_class (
+create table core_class (
     id int unsigned primary key,
     name varchar(255)
 ) engine=innodb;
 
-create table system_entity (
+create table core_entity (
     id bigint unsigned primary key auto_increment,
-    system_class_id int unsigned,
+    core_class_id int unsigned,
     creation_process_id bigint unsigned,
-    last_system_log_id bigint unsigned,
-    foreign key (system_class_id) references system_class (id),
-    foreign key (creation_process_id) references system_process (id)
+    last_core_log_id bigint unsigned,
+    foreign key (core_class_id) references core_class (id),
+    foreign key (creation_process_id) references core_process (id)
 ) engine=innodb;
 
-create table system_status (
+create table core_status (
     id int unsigned primary key,
-    system_entity_id bigint unsigned,
+    core_entity_id bigint unsigned,
     name varchar(255),
-    foreign key (system_entity_id) references system_entity (id)
+    foreign key (core_entity_id) references core_entity (id)
 ) engine=innodb;
 
-create table system_event (
+create table core_event (
     id int unsigned primary key,
-    system_entity_id bigint unsigned,
+    core_entity_id bigint unsigned,
     description varchar(255),
-    foreign key (system_entity_id) references system_entity (id)
+    foreign key (core_entity_id) references core_entity (id)
 ) engine=innodb;
 
-create table system_transition (
+create table core_transition (
     id int unsigned primary key auto_increment,
-    system_event_id int unsigned,
-    prev_system_status_id int unsigned,
-    post_system_status_id int unsigned,
-    foreign key (system_event_id) references system_event (id),
-    foreign key (prev_system_status_id) references system_status (id),
-    foreign key (post_system_status_id) references system_status (id)
+    core_event_id int unsigned,
+    prev_core_status_id int unsigned,
+    post_core_status_id int unsigned,
+    foreign key (core_event_id) references core_event (id),
+    foreign key (prev_core_status_id) references core_status (id),
+    foreign key (post_core_status_id) references core_status (id)
 ) engine=innodb;
 
-create table system_log (
+create table core_log (
     id bigint unsigned primary key auto_increment,
-    system_entity_id bigint unsigned,
-    system_transition_id int unsigned,
-    system_status_id int unsigned,
+    core_entity_id bigint unsigned,
+    core_transition_id int unsigned,
+    core_status_id int unsigned,
     issued_at datetime,
     process_id bigint unsigned,
-    foreign key (system_entity_id) references system_entity (id),
-    foreign key (system_transition_id) references system_transition (id),
-    foreign key (system_status_id) references system_status (id),
-    foreign key (process_id) references system_process (id)
+    foreign key (core_entity_id) references core_entity (id),
+    foreign key (core_transition_id) references core_transition (id),
+    foreign key (core_status_id) references core_status (id),
+    foreign key (process_id) references core_process (id)
 ) engine=innodb;
 
-alter table system_user add foreign key (system_entity_id) references system_entity (id);
+alter table core_user add foreign key (core_entity_id) references core_entity (id);
 
-alter table system_entity add foreign key (last_system_log_id) references system_log (id);
+alter table core_entity add foreign key (last_core_log_id) references core_log (id);
