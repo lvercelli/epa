@@ -7,4 +7,4 @@ spring:
 logging:
     level:
         com.culqi: INFO
-    file: ${catalina.home}/logs/epa.log
+    file: ${catalina.home}/logs/tsbp.log

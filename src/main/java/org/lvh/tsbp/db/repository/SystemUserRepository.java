@@ -1,7 +1,7 @@
-package org.lvh.epa.repository;
+package org.lvh.tsbp.db.repository;
 
-import org.lvh.epa.model.SystemUser;
-import org.lvh.epa.repository.base.ReadOnlyJpaRepository;
+import org.lvh.tsbp.db.model.SystemUser;
+import org.lvh.tsbp.db.repository.base.ReadOnlyJpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**

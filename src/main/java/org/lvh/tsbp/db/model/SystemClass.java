@@ -1,4 +1,4 @@
-package org.lvh.epa.model;
+package org.lvh.tsbp.db.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
