@@ -19,11 +19,11 @@ public class CoreEntity {
 
     @ManyToOne
     @JoinColumn(name = "creation_process_id")
-    private SystemProcess creationProcess;
+    private CoreProcess creationProcess;
 
     @ManyToOne
     @JoinColumn(name = "last_system_log_id")
-    private SystemLog lastSystemLog;
+    private CoreLog lastCoreLog;
 
     public Long getId() {
         return id;
@@ -43,21 +43,21 @@ public class CoreEntity {
         return this;
     }
 
-    public SystemProcess getCreationProcess() {
+    public CoreProcess getCreationProcess() {
         return creationProcess;
     }
 
-    public CoreEntity setCreationProcess(SystemProcess creationProcess) {
+    public CoreEntity setCreationProcess(CoreProcess creationProcess) {
         this.creationProcess = creationProcess;
         return this;
     }
 
-    public SystemLog getLastSystemLog() {
-        return lastSystemLog;
+    public CoreLog getLastCoreLog() {
+        return lastCoreLog;
     }
 
-    public CoreEntity setLastSystemLog(SystemLog lastSystemLog) {
-        this.lastSystemLog = lastSystemLog;
+    public CoreEntity setLastCoreLog(CoreLog lastCoreLog) {
+        this.lastCoreLog = lastCoreLog;
         return this;
     }
 
@@ -67,7 +67,7 @@ public class CoreEntity {
                 "id=" + id +
                 ", coreClass=" + coreClass +
                 ", creationProcess=" + (creationProcess != null ? creationProcess.getId() : null) +
-                ", lastSystemLog=" + (lastSystemLog != null ? lastSystemLog.getId() : null) +
+                ", lastCoreLog=" + (lastCoreLog != null ? lastCoreLog.getId() : null) +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "core_status")
-public class SystemStatus {
+public class CoreStatus {
 
     @Id
     @Column(name = "id")
@@ -24,7 +24,7 @@ public class SystemStatus {
         return id;
     }
 
-    public SystemStatus setId(Integer id) {
+    public CoreStatus setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -33,7 +33,7 @@ public class SystemStatus {
         return coreEntity;
     }
 
-    public SystemStatus setCoreEntity(CoreEntity coreEntity) {
+    public CoreStatus setCoreEntity(CoreEntity coreEntity) {
         this.coreEntity = coreEntity;
         return this;
     }
@@ -42,14 +42,14 @@ public class SystemStatus {
         return name;
     }
 
-    public SystemStatus setName(String name) {
+    public CoreStatus setName(String name) {
         this.name = name;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemStatus{" +
+        return "CoreStatus{" +
                 "id=" + id +
                 ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
                 ", name='" + name + '\'' +

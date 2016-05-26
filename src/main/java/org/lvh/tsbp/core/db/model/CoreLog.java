@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "core_log")
-public class SystemLog {
+public class CoreLog {
 
     @Id
     @GeneratedValue
@@ -21,11 +21,11 @@ public class SystemLog {
 
     @ManyToOne
     @JoinColumn(name = "core_transition_id")
-    private SystemTransition systemTransition;
+    private CoreTransition coreTransition;
 
     @ManyToOne
     @JoinColumn(name = "core_status_id")
-    private SystemStatus systemStatus;
+    private CoreStatus coreStatus;
 
     @Column(name = "issued_at")
     @Temporal(TemporalType.TIMESTAMP)
@@ -33,13 +33,13 @@ public class SystemLog {
 
     @ManyToOne
     @JoinColumn(name = "core_process_id")
-    private SystemProcess systemProcess;
+    private CoreProcess coreProcess;
 
     public Long getId() {
         return id;
     }
 
-    public SystemLog setId(Long id) {
+    public CoreLog setId(Long id) {
         this.id = id;
         return this;
     }
@@ -48,26 +48,26 @@ public class SystemLog {
         return coreEntity;
     }
 
-    public SystemLog setCoreEntity(CoreEntity coreEntity) {
+    public CoreLog setCoreEntity(CoreEntity coreEntity) {
         this.coreEntity = coreEntity;
         return this;
     }
 
-    public SystemTransition getSystemTransition() {
-        return systemTransition;
+    public CoreTransition getCoreTransition() {
+        return coreTransition;
     }
 
-    public SystemLog setSystemTransition(SystemTransition systemTransition) {
-        this.systemTransition = systemTransition;
+    public CoreLog setCoreTransition(CoreTransition coreTransition) {
+        this.coreTransition = coreTransition;
         return this;
     }
 
-    public SystemStatus getSystemStatus() {
-        return systemStatus;
+    public CoreStatus getCoreStatus() {
+        return coreStatus;
     }
 
-    public SystemLog setSystemStatus(SystemStatus systemStatus) {
-        this.systemStatus = systemStatus;
+    public CoreLog setCoreStatus(CoreStatus coreStatus) {
+        this.coreStatus = coreStatus;
         return this;
     }
 
@@ -75,29 +75,29 @@ public class SystemLog {
         return issuedAt;
     }
 
-    public SystemLog setIssuedAt(Date issuedAt) {
+    public CoreLog setIssuedAt(Date issuedAt) {
         this.issuedAt = issuedAt;
         return this;
     }
 
-    public SystemProcess getSystemProcess() {
-        return systemProcess;
+    public CoreProcess getCoreProcess() {
+        return coreProcess;
     }
 
-    public SystemLog setSystemProcess(SystemProcess systemProcess) {
-        this.systemProcess = systemProcess;
+    public CoreLog setCoreProcess(CoreProcess coreProcess) {
+        this.coreProcess = coreProcess;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemLog{" +
+        return "CoreLog{" +
                 "id=" + id +
                 ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
-                ", systemTransition=" + (systemTransition != null ? systemTransition.getId() : null) +
-                ", systemStatus=" + systemStatus +
+                ", coreTransition=" + (coreTransition != null ? coreTransition.getId() : null) +
+                ", coreStatus=" + coreStatus +
                 ", issuedAt=" + issuedAt +
-                ", systemProcess=" + systemProcess +
+                ", coreProcess=" + coreProcess +
                 '}';
     }
 }

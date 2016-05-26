@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "core_user")
-public class SystemUser {
+public class CoreUser {
 
     @Id
     @Column(name = "id")
@@ -24,7 +24,7 @@ public class SystemUser {
         return id;
     }
 
-    public SystemUser setId(Integer id) {
+    public CoreUser setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -33,7 +33,7 @@ public class SystemUser {
         return coreEntity;
     }
 
-    public SystemUser setCoreEntity(CoreEntity coreEntity) {
+    public CoreUser setCoreEntity(CoreEntity coreEntity) {
         this.coreEntity = coreEntity;
         return this;
     }
@@ -42,14 +42,14 @@ public class SystemUser {
         return email;
     }
 
-    public SystemUser setEmail(String email) {
+    public CoreUser setEmail(String email) {
         this.email = email;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemUser{" +
+        return "CoreUser{" +
                 "id=" + id +
                 ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
                 ", email='" + email + '\'' +

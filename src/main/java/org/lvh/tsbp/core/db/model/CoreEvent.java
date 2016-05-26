@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "core_event")
-public class SystemEvent {
+public class CoreEvent {
 
     @Id
     @Column(name = "id")
@@ -24,7 +24,7 @@ public class SystemEvent {
         return id;
     }
 
-    public SystemEvent setId(Integer id) {
+    public CoreEvent setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -33,7 +33,7 @@ public class SystemEvent {
         return coreEntity;
     }
 
-    public SystemEvent setCoreEntity(CoreEntity coreEntity) {
+    public CoreEvent setCoreEntity(CoreEntity coreEntity) {
         this.coreEntity = coreEntity;
         return this;
     }
@@ -42,14 +42,14 @@ public class SystemEvent {
         return description;
     }
 
-    public SystemEvent setDescription(String description) {
+    public CoreEvent setDescription(String description) {
         this.description = description;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemEvent{" +
+        return "CoreEvent{" +
                 "id=" + id +
                 ", coreEntity=" + (coreEntity != null ? coreEntity.getId() : null) +
                 ", description='" + description + '\'' +

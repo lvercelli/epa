@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "core_process")
-public class SystemProcess {
+public class CoreProcess {
 
     @Id
     @GeneratedValue
@@ -17,11 +17,11 @@ public class SystemProcess {
 
     @ManyToOne
     @JoinColumn(name = "core_operation_id")
-    private SystemOperation systemOperation;
+    private CoreOperation coreOperation;
 
     @ManyToOne
     @JoinColumn(name = "issued_by_id")
-    private SystemUser issuedBy;
+    private CoreUser issuedBy;
 
     @Column(name = "started_at")
     @Temporal(TemporalType.TIMESTAMP)
@@ -33,7 +33,7 @@ public class SystemProcess {
 
     @ManyToOne
     @JoinColumn(name = "core_operation_result_id")
-    private SystemOperationResult systemOperationResult;
+    private CoreOperationResult coreOperationResult;
 
     @Column(name = "remarks")
     private String remarks;
@@ -45,25 +45,25 @@ public class SystemProcess {
         return id;
     }
 
-    public SystemProcess setId(Long id) {
+    public CoreProcess setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public SystemOperation getSystemOperation() {
-        return systemOperation;
+    public CoreOperation getCoreOperation() {
+        return coreOperation;
     }
 
-    public SystemProcess setSystemOperation(SystemOperation systemOperation) {
-        this.systemOperation = systemOperation;
+    public CoreProcess setCoreOperation(CoreOperation coreOperation) {
+        this.coreOperation = coreOperation;
         return this;
     }
 
-    public SystemUser getIssuedBy() {
+    public CoreUser getIssuedBy() {
         return issuedBy;
     }
 
-    public SystemProcess setIssuedBy(SystemUser issuedBy) {
+    public CoreProcess setIssuedBy(CoreUser issuedBy) {
         this.issuedBy = issuedBy;
         return this;
     }
@@ -72,7 +72,7 @@ public class SystemProcess {
         return startedAt;
     }
 
-    public SystemProcess setStartedAt(Date startedAt) {
+    public CoreProcess setStartedAt(Date startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -81,17 +81,17 @@ public class SystemProcess {
         return finishedAt;
     }
 
-    public SystemProcess setFinishedAt(Date finishedAt) {
+    public CoreProcess setFinishedAt(Date finishedAt) {
         this.finishedAt = finishedAt;
         return this;
     }
 
-    public SystemOperationResult getSystemOperationResult() {
-        return systemOperationResult;
+    public CoreOperationResult getCoreOperationResult() {
+        return coreOperationResult;
     }
 
-    public SystemProcess setSystemOperationResult(SystemOperationResult systemOperationResult) {
-        this.systemOperationResult = systemOperationResult;
+    public CoreProcess setCoreOperationResult(CoreOperationResult coreOperationResult) {
+        this.coreOperationResult = coreOperationResult;
         return this;
     }
 
@@ -99,7 +99,7 @@ public class SystemProcess {
         return remarks;
     }
 
-    public SystemProcess setRemarks(String remarks) {
+    public CoreProcess setRemarks(String remarks) {
         this.remarks = remarks;
         return this;
     }
@@ -108,20 +108,20 @@ public class SystemProcess {
         return exception;
     }
 
-    public SystemProcess setException(String exception) {
+    public CoreProcess setException(String exception) {
         this.exception = exception;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemProcess{" +
+        return "CoreProcess{" +
                 "id=" + id +
-                ", systemOperation=" + (systemOperation != null ? systemOperation.getId() : null) +
+                ", coreOperation=" + (coreOperation != null ? coreOperation.getId() : null) +
                 ", issuedBy=" + (issuedBy != null ? issuedBy.getId() : null) +
                 ", startedAt=" + startedAt +
                 ", finishedAt=" + finishedAt +
-                ", systemOperationResult=" + (systemOperationResult != null ? systemOperationResult.getId() : null) +
+                ", coreOperationResult=" + (coreOperationResult != null ? coreOperationResult.getId() : null) +
                 ", remarks='" + remarks + '\'' +
                 ", exception='" + exception + '\'' +
                 '}';

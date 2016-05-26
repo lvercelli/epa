@@ -1,6 +1,6 @@
 package org.lvh.tsbp.auth.db.model;
 
-import org.lvh.tsbp.core.db.model.SystemUser;
+import org.lvh.tsbp.core.db.model.CoreUser;
 
 import javax.persistence.*;
 
@@ -18,7 +18,7 @@ public class AuthUserToken {
 
     @ManyToOne
     @JoinColumn(name = "core_user_id")
-    private SystemUser systemUser;
+    private CoreUser coreUser;
 
     @Column(name = "token")
     private String token;

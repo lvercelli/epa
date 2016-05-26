@@ -10,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "core_operation")
-public class SystemOperation {
+public class CoreOperation {
 
     @Id
     @Column(name = "id")
@@ -23,7 +23,7 @@ public class SystemOperation {
         return id;
     }
 
-    public SystemOperation setId(Integer id) {
+    public CoreOperation setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -32,7 +32,7 @@ public class SystemOperation {
         return name;
     }
 
-    public SystemOperation setName(String name) {
+    public CoreOperation setName(String name) {
         this.name = name;
         return this;
     }

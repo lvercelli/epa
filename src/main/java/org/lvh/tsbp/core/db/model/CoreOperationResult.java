@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "core_operation_result")
-public class SystemOperationResult {
+public class CoreOperationResult {
 
     @Id
     @Column(name = "id")
@@ -15,7 +15,7 @@ public class SystemOperationResult {
 
     @ManyToOne
     @JoinColumn(name = "core_operation_id")
-    private SystemOperation systemOperation;
+    private CoreOperation coreOperation;
 
     @Column(name = "description")
     private String description;
@@ -30,17 +30,17 @@ public class SystemOperationResult {
         return id;
     }
 
-    public SystemOperationResult setId(Integer id) {
+    public CoreOperationResult setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public SystemOperation getSystemOperation() {
-        return systemOperation;
+    public CoreOperation getCoreOperation() {
+        return coreOperation;
     }
 
-    public SystemOperationResult setSystemOperation(SystemOperation systemOperation) {
-        this.systemOperation = systemOperation;
+    public CoreOperationResult setCoreOperation(CoreOperation coreOperation) {
+        this.coreOperation = coreOperation;
         return this;
     }
 
@@ -48,7 +48,7 @@ public class SystemOperationResult {
         return description;
     }
 
-    public SystemOperationResult setDescription(String description) {
+    public CoreOperationResult setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -57,7 +57,7 @@ public class SystemOperationResult {
         return code;
     }
 
-    public SystemOperationResult setCode(String code) {
+    public CoreOperationResult setCode(String code) {
         this.code = code;
         return this;
     }
@@ -66,16 +66,16 @@ public class SystemOperationResult {
         return message;
     }
 
-    public SystemOperationResult setMessage(String message) {
+    public CoreOperationResult setMessage(String message) {
         this.message = message;
         return this;
     }
 
     @Override
     public String toString() {
-        return "SystemOperationResult{" +
+        return "CoreOperationResult{" +
                 "id=" + id +
-                ", systemOperation=" + (systemOperation != null ? systemOperation.getId() : null) +
+                ", coreOperation=" + (coreOperation != null ? coreOperation.getId() : null) +
                 ", description='" + description + '\'' +
                 ", code='" + code + '\'' +
                 ", message='" + message + '\'' +
